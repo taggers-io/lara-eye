@@ -82,6 +82,11 @@ class FilterTest extends \Orchestra\Testbench\TestCase
         $this->assertQuery('select * from `foo` where `foo`.`x` = SUM(`foo`.`x`)', 'x eq sum(x)');
     }*/
 
+    public function testFilterNowFunction()
+    {
+        $this->assertQuery('select * from `foo` where `foo`.`x` > NOW()', 'x gt now()');
+    }
+
     public function testFilterAllKeysValid()
     {
         $this->assertQuery('select * from `foo` where `foo`.`d` = `foo`.`x`', 'd eq x', ['*']);

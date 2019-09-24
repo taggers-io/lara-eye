@@ -75,6 +75,7 @@ class Filter
             new Functions\SumFunction(),
             new Functions\DateFormatFunction(),
             new Functions\NowFunction(),
+            new Functions\SubdateFunction(),
         ]);
 
         return $builder;
@@ -96,6 +97,7 @@ class Filter
             new Resolvers\DateFormatFunctionResolver(),
             new Resolvers\ConcatFunctionResolver(),
             new Resolvers\NowFunctionResolver(),
+            new Resolvers\SubdateFunctionResolver(),
             new Resolvers\NotEqResolver(),
             new Resolvers\EqResolver(),
             new Resolvers\LteResolver(),

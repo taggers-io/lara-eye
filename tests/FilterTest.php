@@ -87,6 +87,11 @@ class FilterTest extends \Orchestra\Testbench\TestCase
         $this->assertQuery('select * from `foo` where `foo`.`x` > NOW()', 'x gt now()');
     }
 
+    public function testFilterSubdateFunction()
+    {
+        $this->assertQuery('select * from `foo` where `foo`.`x` > SUBDATE(`foo`.`y`,?)', 'x gt subdate(y,30)');
+    }
+
     public function testFilterAllKeysValid()
     {
         $this->assertQuery('select * from `foo` where `foo`.`d` = `foo`.`x`', 'd eq x', ['*']);
